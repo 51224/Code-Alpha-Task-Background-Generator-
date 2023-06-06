@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Background Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .color-picker {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .color-picker label {
+      margin-right: 10px;
+    }
+
+    .color-picker input[type="color"] {
+      vertical-align: middle;
+    }
+
+    .preview-box {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      border: 1px solid #cccccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="Box">
+    <h1>Background Generator</h1>
+    <div class="color-picker">
+      <label for="color1">Color 1:</label>
+      <input type="color" id="color1">
+      <label for="color2">Color 2:</label>
+      <input type="color" id="color2">
+      <label for="color3">Color 3:</label>
+      <input type="color" id="color3">
+    </div>
+    <div class="preview-box"></div>
+  </div>
+
+  <script>
+    const color1Input = document.getElementById('color1');
+    const color2Input = document.getElementById('color2');
+    const color3Input = document.getElementById('color3');
+    const previewBox = document.querySelector('.preview-box');
+
+    function setGradient() {
+      previewBox.style.background = `linear-gradient(to right, ${color1Input.value}, ${color2Input.value},${color3Input.value})`;
+    }
+
+    color1Input.addEventListener('input', setGradient);
+    color2Input.addEventListener('input', setGradient);
+    color3Input.addEventListener('input', setGradient);
+  </script>
+</body>
+</html>
